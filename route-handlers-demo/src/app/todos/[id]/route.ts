@@ -27,3 +27,20 @@ export async function PATCH(
 
   return Response.json(todos[todoIndex]);
 }
+
+export async function DELETE(
+  _request: Request,
+  { params }: { params: { id: string } }
+) {
+  const todoIndex = todos.findIndex((todo) => todo.id.toString() === params.id);
+
+  if (todoIndex === -1)
+    return new Response(JSON.stringify({ message: "Not found" }), {
+      status: 404,
+    });
+
+  const deletedTodo = todos[todoIndex];
+  todos.splice(todoIndex, 1);
+
+  return Response.json(deletedTodo);
+}
