@@ -1,7 +1,10 @@
+import { NextRequest } from "next/server";
 import { todos } from "./data";
 
-export async function GET() {
-  return Response.json(todos);
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const query = searchParams.get("q") || "";
+  return Response.json(todos.filter((todo) => todo.title.includes(query)));
 }
 
 export async function POST(request: Request) {
