@@ -1,12 +1,14 @@
+import { redirect } from "next/navigation";
 import { todos } from "../data";
 
 export async function GET(
   _request: Request,
   { params }: { params: { id: string } }
 ) {
-  return Response.json(
-    todos.find((todo) => todo.id.toString() === params.id) || {}
-  );
+  const todoId = parseInt(params.id);
+  if (todoId > todos.length) redirect("/todos");
+
+  return Response.json(todos.find((todo) => todo.id === todoId) || {});
 }
 
 export async function PATCH(
