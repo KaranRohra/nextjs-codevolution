@@ -1,14 +1,8 @@
 "use client";
-import { serverSideFunction } from "@/utils/server-util";
+import ImageCarousel from "@/components/ImageCarousel";
 
 const ClientRoutePage = () => {
-  const result = serverSideFunction();
-  console.log("Client route rendered");
-  return (
-    <div>
-      ClientRoutePage <p>{result}</p>
-    </div>
-  );
+  return <ImageCarousel />;
 };
 
 export default ClientRoutePage;

@@ -1,3 +1,4 @@
+import ImageCarousel from "@/components/ImageCarousel";
 import { serverSideFunction } from "@/utils/server-util";
 
 const ServerRoutePage = () => {
@@ -6,6 +7,7 @@ const ServerRoutePage = () => {
   return (
     <div>
       ServerRoutePage <p>{result}</p>
+      <ImageCarousel />
     </div>
   );
 };
