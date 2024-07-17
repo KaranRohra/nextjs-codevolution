@@ -1,5 +1,5 @@
 import ImageCarousel from "@/components/ImageCarousel";
-import { serverSideFunction } from "@/utils/server-util";
+import { serverSideFunction } from "@/utils/server-utils";
 
 const ServerRoutePage = () => {
   const result = serverSideFunction();
