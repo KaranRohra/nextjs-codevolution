@@ -19,7 +19,11 @@ export default async function ProductsPage(props: any) {
   // const detailsResponse = await fetch("http://localhost:3001/products/1");
   // const details = await detailsResponse.json();
 
-  const res = await fetch("http://localhost:3001/products");
+  const res = await fetch("http://localhost:3001/products", {
+    next: {
+      revalidate: 10,
+    },
+  });
   const products = await res.json();
   // cookies();
   // const detailsResponse = await fetch("http://localhost:3001/products/1");
