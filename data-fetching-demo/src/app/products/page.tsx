@@ -21,9 +21,9 @@ export default async function ProductsPage(props: any) {
 
   const res = await fetch("http://localhost:3001/products");
   const products = await res.json();
-  cookies();
-  const detailsResponse = await fetch("http://localhost:3001/products/1");
-  const details = await detailsResponse.json();
+  // cookies();
+  // const detailsResponse = await fetch("http://localhost:3001/products/1");
+  // const details = await detailsResponse.json();
 
   return (
     <ul className="space-y-4 p-4">
@@ -35,7 +35,7 @@ export default async function ProductsPage(props: any) {
           <h2 className="text-xl font-semibold">{product.title}</h2>
           <p>{product.description}</p>
           <p className="text-lg font-medium">${product.price}</p>
-          <p>{details.title}</p>
+          {/* <p>{details.title}</p> */}
         </li>
       ))}
     </ul>
